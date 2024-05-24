@@ -18,6 +18,12 @@ import net.runelite.api.events.GameTick;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import net.runelite.client.ui.ClientToolbar;
+import net.runelite.client.ui.NavigationButton;
+import net.runelite.client.util.ImageUtil;
+
+import java.awt.image.BufferedImage;
+
 @Slf4j
 @PluginDescriptor(
 	name = "Daily Xp Goal"
@@ -33,10 +39,27 @@ public class dailyXpGoalPlugin extends Plugin
 	@Inject
 	private ConfigManager configManager;
 
+	@Inject
+	private ClientToolbar clientToolbar;
+
+	private NavigationButton navButton;
+	private DailyXpGoalPanel panel;
+
 	@Override
 	protected void startUp() throws Exception
 	{
-		log.info("Example started!");
+		panel = new DailyXpGoalPanel();
+
+		final BufferedImage icon = ImageUtil.loadImageResource(getClass(), "/daily_xp_goal_icon.png");
+
+		navButton = NavigationButton.builder()
+				.tooltip("Daily Xp Goal")
+				.icon(icon)
+				.priority(7)
+				.panel(panel)
+				.build();
+
+		clientToolbar.addNavigation(navButton);
 	}
 
 	@Override
