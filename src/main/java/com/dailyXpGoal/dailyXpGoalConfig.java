@@ -8,16 +8,6 @@ import net.runelite.client.config.ConfigItem;
 public interface dailyXpGoalConfig extends Config
 {
 	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
-	)
-	default String greeting()
-	{
-		return "Hello";
-	}
-
-	@ConfigItem(
 			keyName = "goalAttack",
 			name = "Attack Goal",
 			description = "Daily goal for attack XP"
@@ -177,6 +167,10 @@ public interface dailyXpGoalConfig extends Config
 			description = "Daily goal for hunter XP"
 	)
 	default int goalHunter() { return 0; }
+
+
+	//-------------------------
+
 
 	@ConfigItem(
 			keyName = "attackXpStartToday",
@@ -362,6 +356,193 @@ public interface dailyXpGoalConfig extends Config
 	)
 	default int hunterXpStartToday() { return 0; }
 
+	//---------------------
+
+	@ConfigItem(
+			keyName = "attackXpGottenToday",
+			hidden = false,
+			name = "attackXpGottenToday",
+			description = "How much attack XP has been gained today"
+	)
+	default int attackXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "strengthXpGottenToday",
+			hidden = false,
+			name = "strengthXpGottenToday",
+			description = "How much strength XP has been gained today"
+	)
+	default int strengthXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "defenceXpGottenToday",
+			hidden = false,
+			name = "defenceXpGottenToday",
+			description = "How much defence XP has been gained today"
+	)
+	default int defenceXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "hitpointsXpGottenToday",
+			hidden = false,
+			name = "hitpointsXpGottenToday",
+			description = "How much hitpoints XP has been gained today"
+	)
+	default int hitpointsXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "rangedXpGottenToday",
+			hidden = false,
+			name = "rangedXpGottenToday",
+			description = "How much ranged XP has been gained today"
+	)
+	default int rangedXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "magicXpGottenToday",
+			hidden = false,
+			name = "magicXpGottenToday",
+			description = "How much magic XP has been gained today"
+	)
+	default int magicXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "prayerXpGottenToday",
+			hidden = false,
+			name = "prayerXpGottenToday",
+			description = "How much prayer XP has been gained today"
+	)
+	default int prayerXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "miningXpGottenToday",
+			hidden = false,
+			name = "miningXpGottenToday",
+			description = "How much mining XP has been gained today"
+	)
+	default int miningXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "fishingXpGottenToday",
+			hidden = false,
+			name = "fishingXpGottenToday",
+			description = "How much fishing XP has been gained today"
+	)
+	default int fishingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "woodcuttingXpGottenToday",
+			hidden = false,
+			name = "woodcuttingXpGottenToday",
+			description = "How much woodcutting XP has been gained today"
+	)
+	default int woodcuttingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "smithingXpGottenToday",
+			hidden = false,
+			name = "smithingXpGottenToday",
+			description = "How much smithing XP has been gained today"
+	)
+	default int smithingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "cookingXpGottenToday",
+			hidden = false,
+			name = "cookingXpGottenToday",
+			description = "How much cooking XP has been gained today"
+	)
+	default int cookingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "firemakingXpGottenToday",
+			hidden = false,
+			name = "firemakingXpGottenToday",
+			description = "How much firemaking XP has been gained today"
+	)
+	default int firemakingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "craftingXpGottenToday",
+			hidden = false,
+			name = "craftingXpGottenToday",
+			description = "How much crafting XP has been gained today"
+	)
+	default int craftingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "fletchingXpGottenToday",
+			hidden = false,
+			name = "fletchingXpGottenToday",
+			description = "How much fletching XP has been gained today"
+	)
+	default int fletchingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "runecraftingXpGottenToday",
+			hidden = false,
+			name = "runecraftingXpGottenToday",
+			description = "How much runecrafting XP has been gained today"
+	)
+	default int runecraftingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "herbloreXpGottenToday",
+			hidden = false,
+			name = "herbloreXpGottenToday",
+			description = "How much herblore XP has been gained today"
+	)
+	default int herbloreXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "constructionXpGottenToday",
+			hidden = false,
+			name = "constructionXpGottenToday",
+			description = "How much construction XP has been gained today"
+	)
+	default int constructionXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "agilityXpGottenToday",
+			hidden = false,
+			name = "agilityXpGottenToday",
+			description = "How much agility XP has been gained today"
+	)
+	default int agilityXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "thievingXpGottenToday",
+			hidden = false,
+			name = "thievingXpGottenToday",
+			description = "How much thieving XP has been gained today"
+	)
+	default int thievingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "slayerXpGottenToday",
+			hidden = false,
+			name = "slayerXpGottenToday",
+			description = "How much slayer XP has been gained today"
+	)
+	default int slayerXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "farmingXpGottenToday",
+			hidden = false,
+			name = "farmingXpGottenToday",
+			description = "How much farming XP has been gained today"
+	)
+	default int farmingXpGottenToday() { return 0; }
+
+	@ConfigItem(
+			keyName = "hunterXpGottenToday",
+			hidden = false,
+			name = "hunterXpGottenToday",
+			description = "How much hunter XP has been gained today"
+	)
+	default int hunterXpGottenToday() { return 0; }
+
+
 
 
 
@@ -397,4 +578,12 @@ public interface dailyXpGoalConfig extends Config
 			description = "need to fetch stats again if new day"
 	)
 	default boolean needToFetchStats() { return false; }
+
+	@ConfigItem(
+			keyName = "AAA_DEBUG_ALWAYS_NEW_DAY",
+			hidden = false,
+			name = "AAA-DEBUG-ALWAYS-NEW-DAY",
+			description = "AAA-DEBUG-ALWAYS-NEW-DAY"
+	)
+	default boolean AAA_DEBUG_ALWAYS_NEW_DAY() { return false; }
 }

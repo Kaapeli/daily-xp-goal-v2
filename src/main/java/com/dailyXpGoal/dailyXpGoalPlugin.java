@@ -56,7 +56,7 @@ public class dailyXpGoalPlugin extends Plugin
 			LocalDate currentDate = LocalDate.now();
             log.info("The current date is: {}", currentDate.toString());
 			//Check if new day
-			if(currentDate.isAfter(prevLogDateFromConfig)) {
+			if(currentDate.isAfter(prevLogDateFromConfig) || config.AAA_DEBUG_ALWAYS_NEW_DAY()) {
 				log.info("New day! Resetting and changing prevLogDate");
 				setCurrentDayAsLastLoginDay(currentDate.toString());
 				setNeedToFetchStats(true);
@@ -141,11 +141,108 @@ public class dailyXpGoalPlugin extends Plugin
 
 		final Skill skill = statChanged.getSkill();
 		final int currentXp = statChanged.getXp();
-		final int currentLevel = statChanged.getLevel();
 		log.info("onStatChanged called!");
 		log.info(skill.toString());
 		log.info(String.valueOf(currentXp));
-		log.info(String.valueOf(currentLevel));
+
+		int todayEarnedXp = 0;
+
+		switch (skill) {
+			case ATTACK:
+				todayEarnedXp = currentXp - config.attackXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "attackXpGottenToday", todayEarnedXp);
+				break;
+			case STRENGTH:
+				todayEarnedXp = currentXp - config.strengthXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "strengthXpGottenToday", todayEarnedXp);
+				break;
+			case DEFENCE:
+				todayEarnedXp = currentXp - config.defenceXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "defenceXpGottenToday", todayEarnedXp);
+				break;
+			case HITPOINTS:
+				todayEarnedXp = currentXp - config.hitpointsXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "hitpointsXpGottenToday", todayEarnedXp);
+				break;
+			case RANGED:
+				todayEarnedXp = currentXp - config.rangedXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "rangedXpGottenToday", todayEarnedXp);
+				break;
+			case MAGIC:
+				todayEarnedXp = currentXp - config.magicXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "magicXpGottenToday", todayEarnedXp);
+				break;
+			case PRAYER:
+				todayEarnedXp = currentXp - config.prayerXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "prayerXpGottenToday", todayEarnedXp);
+				break;
+			case MINING:
+				todayEarnedXp = currentXp - config.miningXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "miningXpGottenToday", todayEarnedXp);
+				break;
+			case FISHING:
+				todayEarnedXp = currentXp - config.fishingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "fishingXpGottenToday", todayEarnedXp);
+				break;
+			case WOODCUTTING:
+				todayEarnedXp = currentXp - config.woodcuttingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "woodcuttingXpGottenToday", todayEarnedXp);
+				break;
+			case SMITHING:
+				todayEarnedXp = currentXp - config.smithingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "smithingXpGottenToday", todayEarnedXp);
+				break;
+			case COOKING:
+				todayEarnedXp = currentXp - config.cookingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "cookingXpGottenToday", todayEarnedXp);
+				break;
+			case FIREMAKING:
+				todayEarnedXp = currentXp - config.firemakingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "firemakingXpGottenToday", todayEarnedXp);
+				break;
+			case CRAFTING:
+				todayEarnedXp = currentXp - config.craftingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "craftingXpGottenToday", todayEarnedXp);
+				break;
+			case FLETCHING:
+				todayEarnedXp = currentXp - config.fletchingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "fletchingXpGottenToday", todayEarnedXp);
+				break;
+			case RUNECRAFT:
+				todayEarnedXp = currentXp - config.runecraftingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "runecraftingXpGottenToday", todayEarnedXp);
+				break;
+			case HERBLORE:
+				todayEarnedXp = currentXp - config.herbloreXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "herbloreXpGottenToday", todayEarnedXp);
+				break;
+			case CONSTRUCTION:
+				todayEarnedXp = currentXp - config.constructionXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "constructionXpGottenToday", todayEarnedXp);
+				break;
+			case AGILITY:
+				todayEarnedXp = currentXp - config.strengthXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "agilityXpGottenToday", todayEarnedXp);
+				break;
+			case THIEVING:
+				todayEarnedXp = currentXp - config.thievingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "thievingXpGottenToday", todayEarnedXp);
+				break;
+			case SLAYER:
+				todayEarnedXp = currentXp - config.slayerXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "slayerXpGottenToday", todayEarnedXp);
+				break;
+			case FARMING:
+				todayEarnedXp = currentXp - config.farmingXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "farmingXpGottenToday", todayEarnedXp);
+				break;
+			case HUNTER:
+				todayEarnedXp = currentXp - config.hunterXpStartToday();
+				configManager.setConfiguration("dailyXpGoalConfig", "hunterXpGottenToday", todayEarnedXp);
+				break;
+			default:
+				log.info("Unknown skill - onStatChange");
+		}
 	}
 
 	@Provides
